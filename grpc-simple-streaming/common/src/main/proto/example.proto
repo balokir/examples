@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package grpc_simple_streaming;
+
+option java_multiple_files = true;
+option java_package = "me.balokir.grpc_simple_streaming.common.grpc";
+option java_outer_classname = "ExampleGrpcController";
+
+
+service ExampleStreamingService {
+  rpc ExampleGrpcStreaming (stream ClientMessage) returns (stream ServerMessage) {}
+}
+
+message ServerMessage {
+  int32 type =1;
+  string command = 2;
+}
+
+
+message ClientMessage {
+  int32 type =1;
+  string command = 2;
+}

@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: grpc-simple-streaming-server
+server:
+  port: 8031
