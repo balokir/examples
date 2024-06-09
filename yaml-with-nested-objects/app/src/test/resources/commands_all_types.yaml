@@ -1,0 +1,13 @@
+commands:
+- id: command_id
+  arguments:
+    - id: string_id
+      type: string
+    - id: int_id
+      type: int
+    - id: double_id
+      type: double
+    - id: bool_id
+      type: bool
+    - id: choice_id
+      type: choice

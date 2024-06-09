@@ -1,0 +1,12 @@
+commands:
+- id: command_id
+  name : command name
+  arguments:
+    - id: argument_id
+      name : argument name
+      required: yes
+      type: choice
+      variants:
+        one: One
+        two: Two
+        three: Three

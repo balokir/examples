@@ -1,0 +1,45 @@
+commands:
+- id: shutdown
+  name : Shutdown
+
+- id: reconnect_delay
+  name : Reconnect delay
+  arguments:
+    - id: delay
+      name : Delay in seconds
+      type: int
+      required: yes
+
+- id: mute
+  name : Start/Stop sending targets
+  arguments:
+    - id: value
+      name : Delay in seconds
+      type: bool
+      # if no argument - just switch to another state
+      required: no
+
+- id: double_example
+  name : Example of command with double argument type
+  arguments:
+    - id: value
+      name : Value
+      type: double
+      required: yes
+
+- id: string_example
+  name : Example of command with string and choice argument types
+  arguments:
+    - id: value
+      name : Value
+      type: string
+      required: yes
+
+    - id: value
+      name : Variant
+      type: choice
+      required: yes
+      variants:
+        one: One
+        two: Two
+        three: Three

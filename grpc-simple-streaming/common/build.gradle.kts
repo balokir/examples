@@ -9,7 +9,7 @@ plugins {
     id("com.google.protobuf")
 }
 
-group = "me.balokir.grpc_simple_streaming.common"
+group = "me.balokir.grpc_simple_streaming"
 version = "1.0-SNAPSHOT"
 
 val grpcVersion = "1.64.0" // CURRENT_GRPC_VERSION

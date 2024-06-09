@@ -10,7 +10,7 @@ plugins {
 }
 
 
-group = "me.balokir.grpc_simple_streaming.client"
+group = "me.balokir.grpc_simple_streaming"
 version = "1.0-SNAPSHOT"
 
 dependencies {
