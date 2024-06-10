@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 
-public class DtoYaml {
+public class DtoCommandsYaml {
     public static <T> T read(Reader reader, Class<T> _class) throws IOException {
         return getObjectMapper().readValue(reader, _class);
     }
@@ -34,11 +34,10 @@ public class DtoYaml {
             new YAMLFactory()//
                              .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)//
                              .enable(YAMLGenerator.Feature.MINIMIZE_QUOTES);
-        ObjectMapper mapper = //
+        return  //
             new ObjectMapper(factory)//
                                      .findAndRegisterModules()//
                                      .setSerializationInclusion(JsonInclude.Include.NON_NULL)//
                                      .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-        return mapper;
     }
 }

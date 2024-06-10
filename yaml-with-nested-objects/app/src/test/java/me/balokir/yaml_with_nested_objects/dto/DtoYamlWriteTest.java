@@ -22,7 +22,7 @@ class DtoYamlWriteTest {
     @Test
     void test_empty_CommandsContainer() throws JsonProcessingException {
         CommandsContainer commands = new CommandsContainer();
-        String string = DtoYaml.write(commands);
+        String string = DtoCommandsYaml.write(commands);
         assertThat(string, is("""
                                   {}
                                   """));
@@ -32,7 +32,7 @@ class DtoYamlWriteTest {
     @Test
     void test_empty_Command() throws JsonProcessingException {
         Command command = new Command();
-        String string = DtoYaml.write(command);
+        String string = DtoCommandsYaml.write(command);
         assertThat(string, is("""
                                   {}
                                   """));
@@ -44,7 +44,7 @@ class DtoYamlWriteTest {
         Command command = new Command();
         command.setId("command_id");
         command.setName("command name");
-        String string = DtoYaml.write(command);
+        String string = DtoCommandsYaml.write(command);
         assertThat(string, is("""
                                   id: command_id
                                   name: command name
@@ -68,7 +68,7 @@ class DtoYamlWriteTest {
         CommandsContainer commandsContainer = new CommandsContainer();
         commandsContainer.setCommands(commands);
 
-        String string = DtoYaml.write(commandsContainer);
+        String string = DtoCommandsYaml.write(commandsContainer);
         assertThat(string, is("""
                                   commands:
                                   - id: command_id1
@@ -85,7 +85,7 @@ class DtoYamlWriteTest {
         argument.setId("argument_id");
         argument.setName("argument name");
         argument.setRequired(true);
-        String string = DtoYaml.write(argument);
+        String string = DtoCommandsYaml.write(argument);
         assertThat(string, is("""
                                   id: argument_id
                                   name: argument name
@@ -100,7 +100,7 @@ class DtoYamlWriteTest {
         argument.setId("argument_id");
         argument.setName("argument name");
         argument.setType(ArgumentType.STRING);
-        String string = DtoYaml.write(argument);
+        String string = DtoCommandsYaml.write(argument);
         assertThat(string, is("""
                                   id: argument_id
                                   name: argument name
@@ -114,7 +114,7 @@ class DtoYamlWriteTest {
         Argument argument = new Argument();
         argument.setId("argument_id");
         argument.setType(ArgumentType.STRING);
-        String string = DtoYaml.write(argument);
+        String string = DtoCommandsYaml.write(argument);
         assertThat(string, is("""
                                   id: argument_id
                                   type: string
@@ -127,7 +127,7 @@ class DtoYamlWriteTest {
         Argument argument = new Argument();
         argument.setId("argument_id");
         argument.setType(ArgumentType.BOOL);
-        String string = DtoYaml.write(argument);
+        String string = DtoCommandsYaml.write(argument);
         assertThat(string, is("""
                                   id: argument_id
                                   type: bool
@@ -140,7 +140,7 @@ class DtoYamlWriteTest {
         Argument argument = new Argument();
         argument.setId("argument_id");
         argument.setType(ArgumentType.INT);
-        String string = DtoYaml.write(argument);
+        String string = DtoCommandsYaml.write(argument);
         assertThat(string, is("""
                                   id: argument_id
                                   type: int
@@ -153,7 +153,7 @@ class DtoYamlWriteTest {
         Argument argument = new Argument();
         argument.setId("argument_id");
         argument.setType(ArgumentType.DOUBLE);
-        String string = DtoYaml.write(argument);
+        String string = DtoCommandsYaml.write(argument);
         assertThat(string, is("""
                                   id: argument_id
                                   type: double
@@ -166,7 +166,7 @@ class DtoYamlWriteTest {
         Argument argument = new Argument();
         argument.setId("argument_id");
         argument.setType(ArgumentType.CHOICE);
-        String string = DtoYaml.write(argument);
+        String string = DtoCommandsYaml.write(argument);
         assertThat(string, is("""
                                   id: argument_id
                                   type: choice
@@ -185,7 +185,7 @@ class DtoYamlWriteTest {
         variants.put("two", "Two");
         variants.put("three", "Three");
         argument.setVariants(variants);
-        String string = DtoYaml.write(argument);
+        String string = DtoCommandsYaml.write(argument);
 
         assertThat(string, is("""
                                   id: argument_id
@@ -217,7 +217,7 @@ class DtoYamlWriteTest {
         command.setName("command name");
         command.setArguments(arguments);
 
-        String string = DtoYaml.write(command);
+        String string = DtoCommandsYaml.write(command);
         assertThat(string, is("""
                                   id: command_id
                                   name: command name

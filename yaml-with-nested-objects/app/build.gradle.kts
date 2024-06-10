@@ -8,6 +8,10 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     `java-library`
+
+    // https://github.com/radarsh/gradle-test-logger-plugin
+    // log tests execution during the build
+    id("com.adarshr.test-logger") version "4.0.0"
 }
 
 repositories {
@@ -48,8 +52,13 @@ dependencies {
     // This dependency is used by the application.
 }
 
-
-tasks.named<Test>("test") {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
+tasks {
+    test {
+        useJUnitPlatform()
+    }
+    // https://github.com/radarsh/gradle-test-logger-plugin
+    // set STANDARD colors schema
+    testlogger {
+        theme = com.adarshr.gradle.testlogger.theme.ThemeType.PLAIN
+    }
 }
