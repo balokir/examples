@@ -31,18 +31,16 @@ group = "me.balokir.yaml-with-nested-objects"
 version = "1.0-SNAPSHOT"
 
 dependencies {
+
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly("org.projectlombok:lombok:1.18.32")
     annotationProcessor("org.projectlombok:lombok:1.18.32")
-
-//    // https://mvnrepository.com/artifact/org.yaml/snakeyaml
-//    implementation("org.yaml:snakeyaml:2.2")
 
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.1")
 
     // Use JUnit Jupiter for testing.
-    testImplementation(libs.junit.jupiter)
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1");
 
     // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library
     testImplementation("org.hamcrest:hamcrest-library:2.2")

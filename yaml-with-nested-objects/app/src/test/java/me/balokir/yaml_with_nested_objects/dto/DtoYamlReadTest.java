@@ -4,7 +4,7 @@ import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -12,10 +12,10 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasSize;
 
 @DisplayName("Test yaml read support for DTO")
 public class DtoYamlReadTest {
-
 
     @DisplayName("Test read CommandsContainer with empty commands list")
     @Test
@@ -25,8 +25,8 @@ public class DtoYamlReadTest {
             """;
         CommandsContainer commandsContainer = //
             DtoCommandsYaml.read(testCase, CommandsContainer.class);
-        assertThat(commandsContainer.getCommands(), is(notNullValue()));
-        assertThat(commandsContainer.getCommands(), is(empty()));
+        assertThat(commandsContainer.getCommands(), notNullValue());
+        assertThat(commandsContainer.getCommands(), empty());
     }
 
     @DisplayName("Test read CommandsContainer with one command in list")
@@ -38,9 +38,10 @@ public class DtoYamlReadTest {
             """;
         CommandsContainer commandsContainer = //
             DtoCommandsYaml.read(testCase, CommandsContainer.class);
-        assertThat(commandsContainer.getCommands(), is(notNullValue()));
-        assertThat(commandsContainer.getCommands().size(), is(1));
+        assertThat(commandsContainer.getCommands(), notNullValue());
+        assertThat(commandsContainer.getCommands(), hasSize(1));
     }
+
 
     @DisplayName("Test read CommandsContainer with two commands in list")
     @Test
@@ -55,7 +56,7 @@ public class DtoYamlReadTest {
             DtoCommandsYaml.read(testCase, CommandsContainer.class);
         List<Command> commands = commandsContainer.getCommands();
         assertThat(commands, is(notNullValue()));
-        assertThat(commands.size(), is(2));
+        assertThat(commands, hasSize(2));
         assertThat(commands.get(0).getId(), is("id1"));
         assertThat(commands.get(1).getId(), is("id2"));
     }
@@ -83,10 +84,10 @@ public class DtoYamlReadTest {
 
         List<Command> commands = commandsContainer.getCommands();
         assertThat(commands, is(notNullValue()));
-        assertThat(commands.size(), is(1));
+        assertThat(commands, hasSize(1));
         List<Argument> arguments = commands.get(0).getArguments();
         assertThat(arguments, is(notNullValue()));
-        assertThat(arguments.size(), is(5));
+        assertThat(arguments, hasSize(5));
         assertThat(arguments.get(0).getType(), CoreMatchers.is(ArgumentType.STRING));
         assertThat(arguments.get(1).getType(), CoreMatchers.is(ArgumentType.INT));
         assertThat(arguments.get(2).getType(), CoreMatchers.is(ArgumentType.DOUBLE));
@@ -116,22 +117,22 @@ public class DtoYamlReadTest {
 
         List<Command> commands = commandsContainer.getCommands();
         assertThat(commands, is(notNullValue()));
-        assertThat(commands.size(), is(1));
+        assertThat(commands, hasSize(1));
         Command command = commands.get(0);
         assertThat(command.getId(), is("command_id"));
         assertThat(command.getName(), is("command name"));
         List<Argument> arguments = command.getArguments();
         assertThat(arguments, is(notNullValue()));
-        assertThat(arguments.size(), is(1));
+        assertThat(arguments, hasSize(1));
         Argument argument = arguments.get(0);
         assertThat(argument.getId(), is("argument_id"));
         assertThat(argument.getName(), is("argument name"));
         assertThat(argument.isRequired(), is(true));
-        assertThat(argument.getType(), CoreMatchers.is(ArgumentType.CHOICE));
+        assertThat(argument.getType(), is(ArgumentType.CHOICE));
 
         Map<String, String> variants = argument.getVariants();
         assertThat(variants, is(notNullValue()));
-        assertThat(variants.size(), is(3));
+        assertThat(variants.keySet(), hasSize(3));
         assertThat(variants.get("one"), is("One"));
         assertThat(variants.get("two"), is("Two"));
         assertThat(variants.get("three"), is("Three"));
