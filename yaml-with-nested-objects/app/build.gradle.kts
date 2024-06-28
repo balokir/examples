@@ -40,7 +40,7 @@ dependencies {
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.1")
 
     // Use JUnit Jupiter for testing.
-    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1");
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
 
     // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library
     testImplementation("org.hamcrest:hamcrest-library:2.2")
