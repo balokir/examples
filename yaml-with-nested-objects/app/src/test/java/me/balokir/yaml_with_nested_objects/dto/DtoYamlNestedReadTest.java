@@ -1,5 +1,6 @@
 package me.balokir.yaml_with_nested_objects.dto;
 
+import me.balokir.yaml.DtoYaml;
 import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 
 @DisplayName("Test yaml read support for DTO")
-public class DtoYamlReadTest {
+public class DtoYamlNestedReadTest {
 
     @DisplayName("Test read CommandsContainer with empty commands list")
     @Test
@@ -24,7 +25,7 @@ public class DtoYamlReadTest {
             commands: []
             """;
         CommandsContainer commandsContainer = //
-            DtoCommandsYaml.read(testCase, CommandsContainer.class);
+            DtoYaml.read(testCase, CommandsContainer.class);
         assertThat(commandsContainer.getCommands(), notNullValue());
         assertThat(commandsContainer.getCommands(), empty());
     }
@@ -37,7 +38,7 @@ public class DtoYamlReadTest {
             - id: id1
             """;
         CommandsContainer commandsContainer = //
-            DtoCommandsYaml.read(testCase, CommandsContainer.class);
+            DtoYaml.read(testCase, CommandsContainer.class);
         assertThat(commandsContainer.getCommands(), notNullValue());
         assertThat(commandsContainer.getCommands(), hasSize(1));
     }
@@ -53,7 +54,7 @@ public class DtoYamlReadTest {
             - id: id2
             """;
         CommandsContainer commandsContainer = //
-            DtoCommandsYaml.read(testCase, CommandsContainer.class);
+            DtoYaml.read(testCase, CommandsContainer.class);
         List<Command> commands = commandsContainer.getCommands();
         assertThat(commands, is(notNullValue()));
         assertThat(commands, hasSize(2));
@@ -80,7 +81,7 @@ public class DtoYamlReadTest {
                   type: choice
             """;
         CommandsContainer commandsContainer = //
-            DtoCommandsYaml.read(testCase, CommandsContainer.class);
+            DtoYaml.read(testCase, CommandsContainer.class);
 
         List<Command> commands = commandsContainer.getCommands();
         assertThat(commands, is(notNullValue()));
@@ -113,7 +114,7 @@ public class DtoYamlReadTest {
                     three: Three
             """;
         CommandsContainer commandsContainer = //
-            DtoCommandsYaml.read(testCase, CommandsContainer.class);
+            DtoYaml.read(testCase, CommandsContainer.class);
 
         List<Command> commands = commandsContainer.getCommands();
         assertThat(commands, is(notNullValue()));

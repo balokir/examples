@@ -1,4 +1,4 @@
-package me.balokir.yaml_with_nested_objects.dto;
+package me.balokir.yaml;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 
-public class DtoCommandsYaml {
+public class DtoYaml {
     public static <T> T read(Reader reader, Class<T> _class) throws IOException {
         return getObjectMapper().readValue(reader, _class);
     }
@@ -29,15 +29,15 @@ public class DtoCommandsYaml {
         getObjectMapper().writeValue(writer, t);
     }
 
-    private static ObjectMapper getObjectMapper() {
+    public static ObjectMapper getObjectMapper() {
         YAMLFactory factory =//
             new YAMLFactory()//
-                             .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)//
-                             .enable(YAMLGenerator.Feature.MINIMIZE_QUOTES);
+                .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)//
+                .enable(YAMLGenerator.Feature.MINIMIZE_QUOTES);
         return  //
             new ObjectMapper(factory)//
-                                     .findAndRegisterModules()//
-                                     .setSerializationInclusion(JsonInclude.Include.NON_NULL)//
-                                     .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+                .findAndRegisterModules()//
+                .setSerializationInclusion(JsonInclude.Include.NON_NULL)//
+                .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     }
 }

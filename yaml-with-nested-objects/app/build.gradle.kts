@@ -42,8 +42,8 @@ dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
 
-    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library
-    testImplementation("org.hamcrest:hamcrest-library:2.2")
+    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest
+    testImplementation("org.hamcrest:hamcrest:2.2")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
