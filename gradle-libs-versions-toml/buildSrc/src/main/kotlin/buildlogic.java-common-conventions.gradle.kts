@@ -1,7 +1,9 @@
 //   libs.versions.toml support inside buildSrc #3
 import org.gradle.accessors.dm.LibrariesForLibs
+
 private val Project.libs: LibrariesForLibs
     get() = extensions.getByType()
+
 
 plugins {
     // Apply the java Plugin to add support for Java.
@@ -35,7 +37,12 @@ java {
     }
 }
 
-tasks.named<Test>("test") {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
+tasks {
+    test {
+        useJUnitPlatform()
+    }
+
+    testlogger {
+        theme = com.adarshr.gradle.testlogger.theme.ThemeType.PLAIN
+    }
 }

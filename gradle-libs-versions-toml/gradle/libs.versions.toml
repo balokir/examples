@@ -4,7 +4,7 @@
 commons-text = "1.11.0"
 
 # tests
-testLogger = "3.2.0"
+testLogger = "4.0.0"
 
 junit-jupiter = "5.10.1"
 junit-platform-launcher = "1.10.2"
