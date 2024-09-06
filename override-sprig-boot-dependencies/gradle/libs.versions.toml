@@ -1,0 +1,29 @@
+[versions]
+
+
+# spring
+springBootDependencyManagement = "1.1.6"
+springBoot = "2.7.18"
+spring = "5.3.39"
+
+logback = "1.2.13"
+slf4j = "1.7.36"
+apacheLog4j = "2.21.1"
+
+jackson = "2.17.2"
+
+
+netty = "4.1.111.Final"
+reactorBom = "2023.0.9"
+
+[libraries]
+
+# spring
+# ======================================================
+# https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
+spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springBoot" }
+
+
+# https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux
+spring-boot-starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux", version.ref = "springBoot" }
+
