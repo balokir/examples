@@ -1,0 +1,42 @@
+[versions]
+
+jetbrainsAnnotations = "24.1.0"
+lombok = "1.18.30"
+slf4j = "1.7.36"
+logback = "1.2.13"
+
+testLogger = "4.0.0"
+
+junitJupiter = "5.8.2"
+junitPlatformLauncher = "1.8.2"
+hamcrest = "2.2"
+
+[libraries]
+# https://mvnrepository.com/artifact/com.adarshr.test-logger/com.adarshr.test-logger.gradle.plugin
+plugin-testLogger = { module = "com.adarshr.test-logger:com.adarshr.test-logger.gradle.plugin", version.ref = "testLogger" }
+
+# https://mvnrepository.com/artifact/org.jetbrains/annotations
+jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrainsAnnotations" }
+
+# https://mvnrepository.com/artifact/org.projectlombok/lombok
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+
+# https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+
+# https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
+# https://mvnrepository.com/artifact/ch.qos.logback/logback-core
+logback-core = { module = "ch.qos.logback:logback-core", version.ref = "logback" }
+
+
+# https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junitJupiter" }
+
+# https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher
+junit-platformLauncher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
+
+# https://mvnrepository.com/artifact/org.hamcrest/hamcrest
+hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
+
