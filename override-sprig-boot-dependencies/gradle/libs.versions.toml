@@ -13,7 +13,7 @@ apacheLog4j = "2.21.1"
 jackson = "2.17.2"
 
 
-netty = "4.1.111.Final"
+netty = "4.1.112.Final"
 reactorBom = "2023.0.9"
 
 [libraries]

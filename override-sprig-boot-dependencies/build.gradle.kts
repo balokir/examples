@@ -19,20 +19,30 @@ dependencyManagement {
     }
 
     imports {
+        mavenBom("org.springframework.boot:spring-boot-dependencies:${libs.versions.springBoot.get()}")
+        {
+            bomProperty("logback.version", libs.versions.logback.get())
+            bomProperty("slf4j.version", libs.versions.slf4j.get())
+            bomProperty("log4j2.version", libs.versions.apacheLog4j.get())
+            bomProperty("jackson-bom.version", libs.versions.jackson.get())
+            bomProperty("netty.version", libs.versions.netty.get())
+            bomProperty("reactor-bom.version", libs.versions.reactorBom.get())
+
+        }
+
         mavenBom("org.springframework:spring-framework-bom:${libs.versions.spring.get()}")
         {
             bomProperty("logback.version", libs.versions.logback.get())
             bomProperty("slf4j.version", libs.versions.slf4j.get())
             bomProperty("log4j2.version", libs.versions.apacheLog4j.get())
             bomProperty("jackson-bom.version", libs.versions.jackson.get())
-            bomProperty("netty.version", libs.versions.jackson.get())
+            bomProperty("netty.version", libs.versions.netty.get())
             bomProperty("reactor-bom.version", libs.versions.reactorBom.get())
-
         }
     }
 
     // Accessing propeties from Imported Boms
-    println(dependencyManagement.importedProperties)
+//    println(dependencyManagement.importedProperties)
 }
 
 
